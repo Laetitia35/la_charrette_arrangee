@@ -35,3 +35,32 @@ nav ul li a {
     height: 100%;
     object-fit: cover;
 }
+
+/* Palette "Matinée ensoleillée" */
+.menu {
+    background-color: #FFF9C4;
+}
+
+.footer {
+    background-color: #F7D6E3;
+}
+
+/* Remplacez les couleurs par celles de la palette choisie */
+
+/* Autres styles */
+
+.container {
+    max-width: 960px;
+}
+
+.nav-pills {
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #007BFF;
+}
+
+.footer {
+    font-size: 14px;
+}
