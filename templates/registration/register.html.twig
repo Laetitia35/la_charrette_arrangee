@@ -3,18 +3,10 @@
 {% block title %}S'inscrire{% endblock %}
 
 {% block body %}
-    <h1>S'inscrire</h1>
+    <div class="container my-5">
+        <h1>Inscription</h1>
+        {{ form(registrationForm)  }}
+        <p>Déjà inscrit(e) ? <a href="{{ path('app_login') }}">Me connecter</a></p>
+    </div>
 
-    {{ form_errors(registrationForm) }}
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">M'inscrire</button>
-    {{ form_end(registrationForm) }}
-    <p>Déjà inscrit(e) ? <a href="{{ path('app_login') }}">Me connecter</a></p>
 {% endblock %}
