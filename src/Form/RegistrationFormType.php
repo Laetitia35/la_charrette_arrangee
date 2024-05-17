@@ -67,8 +67,6 @@ class RegistrationFormType extends AbstractType
                         'placeholder' => 'Merci de confirmer votre mot de passe.'
                     ]
                 ],
-
-
             ])
 
             ->add('submit', SubmitType::class, [
