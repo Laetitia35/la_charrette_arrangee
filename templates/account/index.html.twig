@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+
+<h3 class="text-center">Mon compte</h3>
+
+<div>
+    {% if app.user %}
+        <a href="{{ path('admin') }}">Accéder à mon espace administrateur</a>            
+    {% endif %}
+    
+</div>
+
+{% endblock %}
