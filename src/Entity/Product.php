@@ -17,23 +17,32 @@ class Product
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     #[ORM\Column(type: Types::TEXT)]
     private ?string $ingredient = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $degree = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $degree = null;
 
     #[ORM\Column]
-    private ?int $capacity = null;
+    private ?float $capacity = null;
 
     #[ORM\Column]
-    private ?int $price = null;
+    private ?float $price = null;
+
+    #[ORM\Column]
+    private ?float $tva = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $illustration = null;
+
     #[ORM\ManyToOne(inversedBy: 'products')]
-    private ?Category $category = null;
+    private ?category $category = null;
 
     public function getId(): ?int
     {
@@ -52,6 +61,18 @@ class Product
         return $this;
     }
 
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
     public function getIngredient(): ?string
     {
         return $this->ingredient;
@@ -64,38 +85,50 @@ class Product
         return $this;
     }
 
-    public function getDegree(): ?string
+    public function getDegree(): ?float
     {
         return $this->degree;
     }
 
-    public function setDegree(string $degree): static
+    public function setDegree(?float $degree): static
     {
         $this->degree = $degree;
 
         return $this;
     }
 
-    public function getCapacity(): ?int
+    public function getCapacity(): ?float
     {
         return $this->capacity;
     }
 
-    public function setCapacity(int $capacity): static
+    public function setCapacity(float $capacity): static
     {
         $this->capacity = $capacity;
 
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function setPrice(int $price): static
+    public function setPrice(float $price): static
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getTva(): ?float
+    {
+        return $this->tva;
+    }
+
+    public function setTva(float $tva): static
+    {
+        $this->tva = $tva;
 
         return $this;
     }
@@ -112,12 +145,24 @@ class Product
         return $this;
     }
 
-    public function getCategory(): ?Category
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    public function setIllustration(?string $illustration): static
+    {
+        $this->illustration = $illustration;
+
+        return $this;
+    }
+
+    public function getCategory(): ?category
     {
         return $this->category;
     }
 
-    public function setCategory(?Category $category): static
+    public function setCategory(?category $category): static
     {
         $this->category = $category;
 

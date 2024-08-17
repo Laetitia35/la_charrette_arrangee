@@ -17,11 +17,17 @@ class Recipe
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $ingredients = null;
+    private ?string $ingredient = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $illustration = null;
 
     public function getId(): ?int
     {
@@ -40,14 +46,26 @@ class Recipe
         return $this;
     }
 
-    public function getIngredients(): ?string
+    public function getSlug(): ?string
     {
-        return $this->ingredients;
+        return $this->slug;
     }
 
-    public function setIngredients(string $ingredients): static
+    public function setSlug(string $slug): static
     {
-        $this->ingredients = $ingredients;
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getIngredient(): ?string
+    {
+        return $this->ingredient;
+    }
+
+    public function setIngredient(string $ingredient): static
+    {
+        $this->ingredient = $ingredient;
 
         return $this;
     }
@@ -60,6 +78,18 @@ class Recipe
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    public function setIllustration(string $illustration): static
+    {
+        $this->illustration = $illustration;
 
         return $this;
     }
